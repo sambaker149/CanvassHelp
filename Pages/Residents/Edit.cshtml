@@ -1,0 +1,92 @@
+﻿@page
+@using CanvassHelp.Models
+@model CanvassHelp.Pages.Residents.EditModel
+
+@{
+    ViewData["Title"] = "Edit Resident Details";
+}
+
+<div class="text-center">
+    <h1 class="display-4">CanvassHelp Web Application</h1>
+    <h2>Residents</h2>
+</div>
+
+<h4>Edit Resident Details</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Resident.ResidentId" />
+            <div class="form-group">
+                <label>First Name(s)</label>
+                <input asp-for="Resident.FirstNames" class="form-control" />
+                <span asp-validation-for="Resident.FirstNames" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Middle Name(s)</label>
+                <input asp-for="Resident.MiddleNames" class="form-control" />
+                <span asp-validation-for="Resident.MiddleNames" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Last Name(s)</label>
+                <input asp-for="Resident.LastNames" class="form-control" />
+                <span asp-validation-for="Resident.LastNames" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input asp-for="Resident.Email" class="form-control" />
+                <span asp-validation-for="Resident.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Mobile Number</label>
+                <input asp-for="Resident.MobileNumber" class="form-control" />
+                <span asp-validation-for="Resident.MobileNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Voting Intention</label>
+                <select asp-for="Resident.VoteIntention" class="form-control"
+                        asp-items="@Html.GetEnumSelectList<VoteIntention>()"></select>
+                <span asp-validation-for="Resident.VoteIntention" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Likelihood</label>
+                <select asp-for="Resident.Likelihood" class="form-control"
+                        asp-items="@Html.GetEnumSelectList<Likelihood>()"></select>
+                <span asp-validation-for="Resident.Likelihood" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Additional Information</label>
+                <select asp-for="Resident.Information" class="form-control"
+                        asp-items="@Html.GetEnumSelectList<Information>()"></select>
+                <span asp-validation-for="Resident.Information" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Contact Preference</label>
+                <select asp-for="Resident.ContactPreference" class="form-control"
+                        asp-items="@Html.GetEnumSelectList<ContactPreference>()"></select>
+                <span asp-validation-for="Resident.ContactPreference" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Last Contacted</label>
+                <input asp-for="Resident.LastContacted" class="form-control" />
+                <span asp-validation-for="Resident.LastContacted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <select asp-for="Resident.AddressId" class="form-control" asp-items="ViewBag.AddressId"></select>
+                <span asp-validation-for="Resident.AddressId" class="text-danger"></span>
+            </div><br/>
+            <div class="form-group">
+                <input type="submit" value="Save Changes" class="btn btn-primary" /> |
+                <a class="btn btn-secondary" asp-page="./Index">Back to Residents List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

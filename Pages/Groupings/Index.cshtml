@@ -1,0 +1,39 @@
+﻿@page
+@model CanvassHelp.Pages.Groupings.IndexModel
+
+@{
+    ViewData["Title"] = "Address Groups";
+}
+
+<div class="text-center">
+    <h1 class="display-4">CanvassHelp Web Application</h1>
+    <h2>Address Groups</h2>
+</div>
+
+<p>
+    <a class="btn btn-info" asp-page="Create">Add New Group</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h5>Group ID</h5>
+            </th>
+            <th>
+                <h5>Group Name</h5>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Grouping) {
+        <tr>
+                <h4>@Html.DisplayFor(modelItem => item.GroupingName)</h4>
+                <h6><b>Address Group ID: </b>@Html.DisplayFor(modelItem => item.GroupingId)</h6>
+                <a class="btn btn-info" asp-page="./Details" asp-route-id="@item.GroupingId">Address Group Details</a> |
+                <a class="btn btn-dark" asp-page="./Edit" asp-route-id="@item.GroupingId">Edit Address Group</a> |
+                <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.GroupingId">Remove Address Group</a>
+        </tr><br/>
+}
+    </tbody>
+</table>

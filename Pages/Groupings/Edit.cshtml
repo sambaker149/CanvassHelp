@@ -1,0 +1,37 @@
+﻿@page
+@model CanvassHelp.Pages.Groupings.EditModel
+
+@{
+    ViewData["Title"] = "Edit Address Group";
+}
+
+<div class="text-center">
+    <h1 class="display-4">CanvassHelp Web Application</h1>
+    <h2>Address Groups</h2>
+</div>
+
+<h4>Edit Address Group</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Grouping.GroupingId" />
+            <div class="form-group">
+                <label asp-for="Grouping.GroupingName" class="control-label"></label>
+                <input asp-for="Grouping.GroupingName" class="form-control" />
+                <span asp-validation-for="Grouping.GroupingName" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <input type="submit" value="Save Changes" class="btn btn-primary" /> |
+                <a class="btn btn-secondary" asp-page="./Index">Back to Address Groups List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

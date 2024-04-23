@@ -1,0 +1,36 @@
+﻿@page
+@model CanvassHelp.Pages.Groupings.DeleteModel
+
+@{
+    ViewData["Title"] = "Remove Address Group";
+}
+
+<div class="text-center">
+    <h1 class="display-4">CanvassHelp Web Application</h1>
+    <h2>Address Groups</h2>
+</div>
+
+<h3>Are you sure you want to remove this address group?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Address Group Name:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grouping.GroupingName)
+        </dd>
+        <dt class="col-sm-2">
+            Address Group ID:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grouping.GroupingId)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Grouping.GroupingId" />
+        <input type="submit" value="Remove" class="btn btn-danger" /> |
+        <a class="btn btn-secondary" asp-page="./Index">Back to Address Groups List</a>
+    </form>
+</div>

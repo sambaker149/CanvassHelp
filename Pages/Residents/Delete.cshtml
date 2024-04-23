@@ -1,0 +1,82 @@
+﻿@page
+@model CanvassHelp.Pages.Residents.DeleteModel
+
+@{
+    ViewData["Title"] = "Remove Resident";
+}
+
+<div class="text-center">
+    <h1 class="display-4">CanvassHelp Web Application</h1>
+    <h2>Residents</h2>
+</div>
+
+<h3>Are you sure you want to remove this resident?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            First Name(s):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Resident.FirstNames)
+        </dd>
+        <dt class="col-sm-2">
+            Middle Name(s):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Resident.MiddleNames)
+        </dd>
+        <dt class="col-sm-2">
+            Last Name(s):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Resident.LastNames)
+        </dd>
+        <dt class="col-sm-2">
+            Voting Intention:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Resident.VoteIntention)
+        </dd>
+        <dt class="col-sm-2">
+            Likelihood:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Resident.Likelihood)
+        </dd>
+        <dt class="col-sm-2">
+            Additional Information:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Resident.Information)
+        </dd>
+        <dt class="col-sm-2">
+            Contact Preference:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Resident.ContactPreference)
+        </dd>
+        <dt class="col-sm-2">
+            Last Contacted:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Resident.LastContacted)
+        </dd>
+        <dt class="col-sm-2">
+            Address:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Resident.Address.HouseName)
+            @Html.DisplayFor(model => model.Resident.Address.HouseNumber)
+            @Html.DisplayFor(model => model.Resident.Address.StreetName)
+            @Html.DisplayFor(model => model.Resident.Address.PostTown)
+            @Html.DisplayFor(model => model.Resident.Address.Postcode)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Resident.ResidentId" />
+        <input type="submit" value="Remove" class="btn btn-danger" /> |
+        <a class="btn btn-secondary" asp-page="./Index">Back to Residents List</a>
+    </form>
+</div>

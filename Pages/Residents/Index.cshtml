@@ -1,0 +1,65 @@
+﻿@page
+@model CanvassHelp.Pages.Residents.IndexModel
+
+@{
+    ViewData["Title"] = "Residents";
+}
+
+<div class="text-center">
+    <h1 class="display-4">CanvassHelp Web Application</h1>
+    <h2>Residents</h2>
+</div>
+
+<p>
+    <a class="btn btn-info" asp-page="Create">Add New Resident</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h5>Resident ID</h5>
+            </th>
+            <th>
+                <h5>Name</h5>
+            </th>
+            <th>
+                <h5>Email</h5>
+            </th>
+            <th>
+                <h5>Mobile</h5>
+            </th>
+            <th>
+                <h5>Last Contacted</h5>
+            </th>
+            <th>
+                <h5>Last Voting Intention</h5>
+            </th>
+            <th>
+                <h5>Contact Preference</h5>
+            </th>
+            <th>
+                <h5>Address</h5>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Resident) {
+        <tr>
+                <h3>@Html.DisplayFor(modelItem => item.FirstNames) @Html.DisplayFor(modelItem => item.LastNames)</h3>
+                <h6>
+                    <b>Address: </b>
+                    @Html.DisplayFor(modelItem => item.Address.HouseNumber)
+                    @Html.DisplayFor(modelItem => item.Address.StreetName)
+                    @Html.DisplayFor(modelItem => item.Address.Postcode)
+                </h6>
+                <h6><b>Last Contacted: </b>@Html.DisplayFor(modelItem => item.LastContacted)</h6>
+                <h6><b>Last Voting Intention: </b>@Html.DisplayFor(modelItem => item.VoteIntention)</h6>
+                <h6><b>Contact Preference: </b>@Html.DisplayFor(modelItem => item.ContactPreference)</h6>
+                <a class="btn btn-info" asp-page="./Details" asp-route-id="@item.ResidentId">Resident Details</a> |
+                <a class="btn btn-dark" asp-page="./Edit" asp-route-id="@item.ResidentId">Edit Resident</a> |
+                <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.ResidentId">Remove Resident</a>
+        </tr><br/>
+}
+    </tbody>
+</table>

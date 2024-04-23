@@ -1,0 +1,75 @@
+﻿@page
+@model CanvassHelp.Pages.Addresses.IndexModel
+
+@{
+    ViewData["Title"] = "Addresses";
+}
+
+<div class="text-center">
+    <h1 class="display-4">CanvassHelp Web Application</h1>
+    <h2>Addresses</h2>
+</div>
+
+<p>
+    <a class="btn btn-info" asp-page="Create">Add New Address</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h5>Address ID</h5>
+            </th>
+            <th>
+                <h5>House Name</h5>
+            </th>
+            <th>
+                <h5>House Number</h5>
+            </th>
+            <th>
+                <h5>Street Name</h5>
+            </th>
+            <th>
+                <h5>Post Town</h5>
+            </th>
+            <th>
+                <h5>Postcode</h5>
+            </th>
+            <th>
+                <h5>Group ID</h5>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Address) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StreetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostTown)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grouping.GroupingId)
+            </td>
+            <td>
+                <a class="btn btn-info" asp-page="./Details" asp-route-id="@item.AddressId">Address Details</a> |
+                <a class="btn btn-dark" asp-page="./Edit" asp-route-id="@item.AddressId">Edit Address</a> |
+                <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.AddressId">Remove Address</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,61 @@
+﻿@page
+@model CanvassHelp.Pages.Addresses.DeleteModel
+
+@{
+    ViewData["Title"] = "Remove Address";
+}
+
+<div class="text-center">
+    <h1 class="display-4">CanvassHelp Web Application</h1>
+    <h2>Addresses</h2>
+</div>
+
+<h3>Are you sure you want to remove this address?</h3>
+<div>
+    <h4>Address</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            House Name
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address.HouseName)
+        </dd>
+        <dt class="col-sm-2">
+            House Number
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address.HouseNumber)
+        </dd>
+        <dt class="col-sm-2">
+            Street Name
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address.StreetName)
+        </dd>
+        <dt class="col-sm-2">
+            Post Town
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address.PostTown)
+        </dd>
+        <dt class="col-sm-2">
+            Postcode
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address.Postcode)
+        </dd>
+        <dt class="col-sm-2">
+            Address Group
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address.Grouping.GroupingId)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Address.AddressId" />
+        <input type="submit" value="Remove" class="btn btn-danger" /> |
+        <a class="btn btn-secondary" asp-page="./Index">Return to Addresses List</a>
+    </form>
+</div>
