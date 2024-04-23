@@ -1,17 +1,17 @@
 ﻿@page
 @using CanvassHelp.Models
-@model CanvassHelp.Pages.Residents.EditModel
+@model CanvassHelp.Pages.ResidentEditModel
 
 @{
-    ViewData["Title"] = "Edit Resident Details";
+    ViewData["Title"] = "Record Your Conversations";
 }
 
 <div class="text-center">
     <h1 class="display-4">CanvassHelp Web Application</h1>
-    <h2>Residents</h2>
+    <h2>Record Your Conversations</h2>
 </div>
 
-<h4>Edit Resident Details</h4>
+<h4>Input Details Below</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -20,17 +20,17 @@
             <input type="hidden" asp-for="Resident.ResidentId" />
             <div class="form-group">
                 <label>First Name(s)</label>
-                <input asp-for="Resident.FirstNames" class="form-control" />
+                <input type="readonly" asp-for="Resident.FirstNames" class="form-control" />
                 <span asp-validation-for="Resident.FirstNames" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label>Middle Name(s)</label>
-                <input asp-for="Resident.MiddleNames" class="form-control" />
+                <input type="readonly" asp-for="Resident.MiddleNames" class="form-control" />
                 <span asp-validation-for="Resident.MiddleNames" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label>Last Name(s)</label>
-                <input asp-for="Resident.LastNames" class="form-control" />
+                <input type="readonly" asp-for="Resident.LastNames" class="form-control" />
                 <span asp-validation-for="Resident.LastNames" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -74,14 +74,11 @@
             </div>
             <div class="form-group">
                 <label>Address</label>
-                <select asp-for="Resident.AddressId" class="form-control" asp-items="ViewBag.AddressId"></select>
+                <select type="readonly" asp-for="Resident.AddressId" class="form-control" asp-items="ViewBag.AddressId"></select>
                 <span asp-validation-for="Resident.AddressId" class="text-danger"></span>
-            </div><br/>
+            </div><br />
             <div class="form-group">
                 <input type="submit" value="Save Changes" class="btn btn-primary" /> |
-                <a class="btn btn-secondary" asp-page="./Index">Return to List</a> |
-                <a class="btn btn-primary shadow" role="button" href="/Admin"
-                   style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Admin Portal</a>
             </div>
         </form>
     </div>

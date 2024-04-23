@@ -15,10 +15,12 @@
                 <a class="navbar-brand" asp-area="" asp-page="/Index" style="color: rgb(255,255,255);">CanvassHelp</a>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><a class="nav-link active" href="/" style="color: rgb(242,112,82);">Main Menu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Index" style="color: var(--bs-gray-100);">Main Menu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/ResidentInput" style="color: var(--bs-gray-100);">Record Conversations</a></li>
                         <li class="nav-item"><a class="nav-link" href="~/Groupings/Index" style="color: var(--bs-gray-100);">Address Groups</a></li>
                         <li class="nav-item"><a class="nav-link" href="~/Addresses/Index" style="color: var(--bs-gray-100);">Addresses</a></li>
                         <li class="nav-item"><a class="nav-link" href="~/Residents/Index" style="color: var(--bs-gray-100);">Residents</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Admin" style="color: var(--bs-gray-100);">Admin Portal</a></li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

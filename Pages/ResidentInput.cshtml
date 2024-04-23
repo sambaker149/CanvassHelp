@@ -1,18 +1,17 @@
 ﻿@page
-@model CanvassHelp.Pages.Residents.IndexModel
+@model CanvassHelp.Pages.ResidentInputModel
 
 @{
-    ViewData["Title"] = "Residents";
+    ViewData["Title"] = "Record Your Conversations";
 }
 
 <div class="text-center">
     <h1 class="display-4">CanvassHelp Web Application</h1>
-    <h2>Residents</h2>
+    <h2>Record Your Conversations</h2>
 </div>
 
 <p>
-    <a class="btn btn-primary shadow" asp-page="Create" 
-        style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Add New Resident</a>
+    
 </p>
 <table class="table text-center">
     <thead>
@@ -45,8 +44,9 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Resident) {
-        <tr>
+        @foreach (var item in Model.Resident)
+        {
+            <tr>
                 <h3>@Html.DisplayFor(modelItem => item.FirstNames) @Html.DisplayFor(modelItem => item.LastNames)</h3>
                 <h6>
                     <b>Address: </b>
@@ -57,12 +57,11 @@
                 <h6><b>Last Contacted: </b>@Html.DisplayFor(modelItem => item.LastContacted)</h6>
                 <h6><b>Last Voting Intention: </b>@Html.DisplayFor(modelItem => item.VoteIntention)</h6>
                 <h6><b>Contact Preference: </b>@Html.DisplayFor(modelItem => item.ContactPreference)</h6>
-                <a class="btn btn-info" asp-page="./Details" asp-route-id="@item.ResidentId">Resident Details</a> |
-                <a class="btn btn-dark" asp-page="./Edit" asp-route-id="@item.ResidentId">Edit Resident</a> |
-                <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.ResidentId">Remove Resident</a>
-        </tr>
+                <a class="btn btn-primary shadow" asp-page="/ResidentEdit" asp-route-id="@item.ResidentId
+                   style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Record Conversation</a>
+            </tr>
             <br />
             <br />
-}
+        }
     </tbody>
 </table>

@@ -11,9 +11,10 @@
 </div>
 
 <p>
-    <a class="btn btn-info" asp-page="Create">Add New Group</a>
+    <a class="btn btn-primary shadow" asp-page="Create"
+       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Add New Address Group</a>
 </p>
-<table class="table">
+<table class="table text-center">
     <thead>
         <tr>
             <th>
@@ -33,7 +34,9 @@
                 <a class="btn btn-info" asp-page="./Details" asp-route-id="@item.GroupingId">Address Group Details</a> |
                 <a class="btn btn-dark" asp-page="./Edit" asp-route-id="@item.GroupingId">Edit Address Group</a> |
                 <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.GroupingId">Remove Address Group</a>
-        </tr><br/>
+        </tr>
+            <br />
+            <br />
 }
     </tbody>
 </table>

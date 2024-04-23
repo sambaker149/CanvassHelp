@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,14 +10,13 @@ using CanvassHelp.Data;
 using CanvassHelp.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace CanvassHelp.Pages.Residents
+namespace CanvassHelp.Pages
 {
-    [Authorize]
-    public class EditModel : PageModel
+    public class ResidentEditModel : PageModel
     {
         private readonly CanvassHelp.Data.CanvassHelpContext _context;
 
-        public EditModel(CanvassHelp.Data.CanvassHelpContext context)
+        public ResidentEditModel(CanvassHelp.Data.CanvassHelpContext context)
         {
             _context = context;
         }
@@ -32,13 +31,13 @@ namespace CanvassHelp.Pages.Residents
                 return NotFound();
             }
 
-            var resident =  await _context.Residents.FirstOrDefaultAsync(m => m.ResidentId == id);
+            var resident = await _context.Residents.FirstOrDefaultAsync(m => m.ResidentId == id);
             if (resident == null)
             {
                 return NotFound();
             }
             Resident = resident;
-           ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressId");
+            ViewData["AddressId"] = new SelectList(_context.Addresses, "AddressId", "AddressId");
             return Page();
         }
 
@@ -74,7 +73,7 @@ namespace CanvassHelp.Pages.Residents
 
         private bool ResidentExists(int id)
         {
-          return _context.Residents.Any(e => e.ResidentId == id);
+            return _context.Residents.Any(e => e.ResidentId == id);
         }
     }
 }

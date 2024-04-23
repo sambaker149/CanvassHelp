@@ -77,6 +77,8 @@
     <form method="post">
         <input type="hidden" asp-for="Resident.ResidentId" />
         <input type="submit" value="Remove" class="btn btn-danger" /> |
-        <a class="btn btn-secondary" asp-page="./Index">Back to Residents List</a>
+        <a class="btn btn-secondary" asp-page="./Index">Return to List</a> |
+        <a class="btn btn-primary shadow" role="button" href="/Admin"
+           style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Admin Portal</a>
     </form>
 </div>

@@ -11,9 +11,10 @@
 </div>
 
 <p>
-    <a class="btn btn-info" asp-page="Create">Add New Address</a>
+    <a class="btn btn-primary shadow" asp-page="Create"
+       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Add New Address</a>
 </p>
-<table class="table">
+<table class="table text-center">
     <thead>
         <tr>
             <th>
@@ -41,35 +42,17 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Address) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AddressId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HouseName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HouseNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StreetName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PostTown)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Postcode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Grouping.GroupingId)
-            </td>
-            <td>
-                <a class="btn btn-info" asp-page="./Details" asp-route-id="@item.AddressId">Address Details</a> |
-                <a class="btn btn-dark" asp-page="./Edit" asp-route-id="@item.AddressId">Edit Address</a> |
-                <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.AddressId">Remove Address</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Address) {
+                <tr>
+                    <h4>@Html.DisplayFor(modelItem => item.HouseName)</h4>
+                    <h4>@Html.DisplayFor(modelItem => item.HouseNumber) @Html.DisplayFor(modelItem => item.StreetName)</h4>
+                    <h6>@Html.DisplayFor(modelItem => item.PostTown), @Html.DisplayFor(modelItem => item.Postcode)</h6>
+                    <a class="btn btn-info" asp-page="./Details" asp-route-id="@item.AddressId">Address Details</a> |
+                    <a class="btn btn-dark" asp-page="./Edit" asp-route-id="@item.AddressId">Edit Address</a> |
+                    <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.AddressId">Remove Address</a>
+                </tr>
+                    <br />
+                    <br />
+        }
     </tbody>
 </table>

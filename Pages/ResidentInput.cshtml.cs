@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,21 +7,19 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CanvassHelp.Data;
 using CanvassHelp.Models;
-using Microsoft.AspNetCore.Authorization;
 
-namespace CanvassHelp.Pages.Residents
+namespace CanvassHelp.Pages
 {
-    [Authorize]
-    public class IndexModel : PageModel
+    public class ResidentInputModel : PageModel
     {
         private readonly CanvassHelp.Data.CanvassHelpContext _context;
 
-        public IndexModel(CanvassHelp.Data.CanvassHelpContext context)
+        public ResidentInputModel(CanvassHelp.Data.CanvassHelpContext context)
         {
             _context = context;
         }
 
-        public IList<Resident> Resident { get;set; } = default!;
+        public IList<Resident> Resident { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
