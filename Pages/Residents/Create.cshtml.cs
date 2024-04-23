@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CanvassHelp.Data;
 using CanvassHelp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CanvassHelp.Pages.Residents
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly CanvassHelp.Data.CanvassHelpContext _context;

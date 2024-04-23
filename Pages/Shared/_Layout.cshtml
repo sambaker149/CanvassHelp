@@ -10,38 +10,33 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-light sticky-top navbar-expand-md navbar-shrink py-3" id="mainNav" style="background: #023E73;">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">CanvassHelp</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Groupings/Index">Groupings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Addresses/Index">Addresses</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Residents/Index">Residents</a>
-                        </li>
+                <a class="navbar-brand" asp-area="" asp-page="/Index" style="color: rgb(255,255,255);">CanvassHelp</a>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link active" href="/" style="color: rgb(242,112,82);">Main Menu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Groupings/Index" style="color: var(--bs-gray-100);">Address Groups</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Addresses/Index" style="color: var(--bs-gray-100);">Addresses</a></li>
+                        <li class="nav-item"><a class="nav-link" href="~/Residents/Index" style="color: var(--bs-gray-100);">Residents</a></li>
                     </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
-    </header>
+    </header><br/>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - CanvassHelp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    <footer>
+        <div class="container py-2 py-lg-5">
+            <hr>
+            <div class="text-muted d-flex justify-content-between align-items-center pt-3">
+                <p class="mb-0">&copy; 2024 <a asp-area="" asp-page="/Index">CanvassHelp</a></p>
+            </div>
         </div>
     </footer>
 

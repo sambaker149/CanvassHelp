@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CanvassHelp.Data;
 using CanvassHelp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CanvassHelp.Pages.Addresses
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly CanvassHelp.Data.CanvassHelpContext _context;
