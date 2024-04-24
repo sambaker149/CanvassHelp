@@ -11,67 +11,75 @@
     <h2>Residents</h2>
 </div>
 
-<h4>Add New Resident</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Resident.AddressId" class="control-label"></label>
-                <select asp-for="Resident.AddressId" class ="form-control" asp-items="ViewBag.AddressId"></select>
+<div class="album py-5 bg-light">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h4>Add New Resident</h4>
+                <hr />
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Resident.AddressId" class="control-label"></label>
+                        <select asp-for="Resident.AddressId" class="form-control" asp-items="ViewBag.AddressId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Resident.FirstNames" class="control-label"></label>
+                        <input asp-for="Resident.FirstNames" class="form-control" />
+                        <span asp-validation-for="Resident.FirstNames" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Resident.MiddleNames" class="control-label"></label>
+                        <input asp-for="Resident.MiddleNames" class="form-control" />
+                        <span asp-validation-for="Resident.MiddleNames" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Resident.LastNames" class="control-label"></label>
+                        <input asp-for="Resident.LastNames" class="form-control" />
+                        <span asp-validation-for="Resident.LastNames" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Voting Intention</label>
+                        <select asp-for="Resident.VoteIntention" class="form-control"
+                                asp-items="@Html.GetEnumSelectList<VoteIntention>()"></select>
+                        <span asp-validation-for="Resident.VoteIntention" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Likelihood</label>
+                        <select asp-for="Resident.Likelihood" class="form-control"
+                                asp-items="@Html.GetEnumSelectList<Likelihood>()"></select>
+                        <span asp-validation-for="Resident.Likelihood" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Additional Information</label>
+                        <select asp-for="Resident.Information" class="form-control"
+                                asp-items="@Html.GetEnumSelectList<Information>()"></select>
+                        <span asp-validation-for="Resident.Information" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Preference</label>
+                        <select asp-for="Resident.ContactPreference" class="form-control"
+                                asp-items="@Html.GetEnumSelectList<ContactPreference>()"></select>
+                        <span asp-validation-for="Resident.ContactPreference" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Resident.LastContacted" class="control-label"></label>
+                        <input asp-for="Resident.LastContacted" class="form-control" />
+                        <span asp-validation-for="Resident.LastContacted" class="text-danger"></span>
+                    </div><br />
+                    <div class="btn-group">
+                        <input type="submit" value="Add" class="btn btn-primary shadow"
+                               style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px" />
+                        <br />
+                        <a class="btn btn-primary shadow" asp-page="./Index"
+                           style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Return to List</a>
+                        <br />
+                        <a class="btn btn-primary shadow" role="button" href="/Admin"
+                           style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Admin Portal</a>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Resident.FirstNames" class="control-label"></label>
-                <input asp-for="Resident.FirstNames" class="form-control" />
-                <span asp-validation-for="Resident.FirstNames" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Resident.MiddleNames" class="control-label"></label>
-                <input asp-for="Resident.MiddleNames" class="form-control" />
-                <span asp-validation-for="Resident.MiddleNames" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Resident.LastNames" class="control-label"></label>
-                <input asp-for="Resident.LastNames" class="form-control" />
-                <span asp-validation-for="Resident.LastNames" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Voting Intention</label>
-                <select asp-for="Resident.VoteIntention" class="form-control"
-                        asp-items="@Html.GetEnumSelectList<VoteIntention>()"></select>
-                <span asp-validation-for="Resident.VoteIntention" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Likelihood</label>
-                <select asp-for="Resident.Likelihood" class="form-control"
-                    asp-items="@Html.GetEnumSelectList<Likelihood>()"></select>
-                <span asp-validation-for="Resident.Likelihood" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Additional Information</label>
-                <select asp-for="Resident.Information" class="form-control"
-                    asp-items="@Html.GetEnumSelectList<Information>()"></select>
-                 <span asp-validation-for="Resident.Information" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Contact Preference</label>
-                <select asp-for="Resident.ContactPreference" class="form-control"
-                    asp-items="@Html.GetEnumSelectList<ContactPreference>()"></select>
-                <span asp-validation-for="Resident.ContactPreference" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Resident.LastContacted" class="control-label"></label>
-                <input asp-for="Resident.LastContacted" class="form-control" />
-                <span asp-validation-for="Resident.LastContacted" class="text-danger"></span>
-            </div><br/>
-            <div class="form-group">
-                <input type="submit" value="Add" class="btn btn-primary" /> |
-                <a class="btn btn-secondary" asp-page="./Index">Return to List</a> |
-                <a class="btn btn-primary shadow" role="button" href="/Admin"
-                   style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Admin Portal</a>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 

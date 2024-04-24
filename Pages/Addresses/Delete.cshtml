@@ -11,53 +11,64 @@
 </div>
 
 <h3>Are you sure you want to remove this address?</h3>
-<div>
-    <h4>Address</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            House Name
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address.HouseName)
-        </dd>
-        <dt class="col-sm-2">
-            House Number
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address.HouseNumber)
-        </dd>
-        <dt class="col-sm-2">
-            Street Name
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address.StreetName)
-        </dd>
-        <dt class="col-sm-2">
-            Post Town
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address.PostTown)
-        </dd>
-        <dt class="col-sm-2">
-            Postcode
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address.Postcode)
-        </dd>
-        <dt class="col-sm-2">
-            Address Group
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address.Grouping.GroupingId)
-        </dd>
-    </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="Address.AddressId" />
-        <input type="submit" value="Remove" class="btn btn-danger" /> |
-        <a class="btn btn-secondary" asp-page="./Index">Return to List</a> |
-        <a class="btn btn-primary shadow" role="button" href="/Admin"
-           style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Admin Portal</a>
-    </form>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        House Name
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Address.HouseName)
+                    </dd>
+                    <dt class="col-sm-2">
+                        House Number
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Address.HouseNumber)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Street Name
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Address.StreetName)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Post Town
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Address.PostTown)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Postcode
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Address.Postcode)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Address Group
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Address.Grouping.GroupingId)
+                    </dd>
+                </dl>
+
+                <div class="btn-group">
+                    <form method="post">
+                        <input type="hidden" asp-for="Address.AddressId" />
+                        <input type="submit" value="Remove" class="btn btn-primary shadow"
+                               style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px" />
+                        <br />
+                    </form>
+                    <a class="btn btn-primary shadow" asp-page="./Index"
+                       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Return to List</a>
+                    <br />
+                    <a class="btn btn-primary shadow" role="button" href="/Admin"
+                       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Admin Portal</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

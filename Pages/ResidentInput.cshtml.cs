@@ -7,14 +7,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CanvassHelp.Data;
 using CanvassHelp.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace CanvassHelp.Pages
 {
-    public class ResidentInputModel : PageModel
+    public class InputModel : PageModel
     {
         private readonly CanvassHelp.Data.CanvassHelpContext _context;
 
-        public ResidentInputModel(CanvassHelp.Data.CanvassHelpContext context)
+        public InputModel(CanvassHelp.Data.CanvassHelpContext context)
         {
             _context = context;
         }

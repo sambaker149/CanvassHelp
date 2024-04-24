@@ -14,7 +14,7 @@
     <a class="btn btn-primary shadow" asp-page="Create"
        style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Add New Address</a>
 </p>
-<table class="table text-center">
+@*<table class="table text-center">
     <thead>
         <tr>
             <th>
@@ -55,4 +55,34 @@
                     <br />
         }
     </tbody>
-</table>
+</table>*@
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            @foreach (var address in Model.Address)
+            {
+                <div class="col-md-6">
+                    <div class="card mb-6 box-shadow">
+                        <div class="card-body">
+                            <h4 class="card-text">@address.HouseName @address.HouseNumber @address.StreetName</h4>
+                            <h6 class="card-text"><b>Post Town: </b>@address.PostTown</h6>
+                            <h6 class="card-text"><b>Postcode: </b>@address.Postcode</h6>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a class="btn btn-primary shadow" asp-page="./Details" asp-route-id="@address.AddressId"
+                                       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Details</a>
+                                    <br />
+                                    <a class="btn btn-primary shadow" asp-page="./Edit" asp-route-id="@address.AddressId"
+                                       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Edit</a>
+                                    <br />
+                                    <a class="btn btn-primary shadow" asp-page="./Delete" asp-route-id="@address.AddressId"
+                                       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

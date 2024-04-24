@@ -14,7 +14,7 @@
     <a class="btn btn-primary shadow" asp-page="Create"
        style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Add New Address Group</a>
 </p>
-<table class="table text-center">
+@*<table class="table text-center">
     <thead>
         <tr>
             <th>
@@ -39,4 +39,33 @@
             <br />
 }
     </tbody>
-</table>
+</table>*@
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            @foreach (var group in Model.Grouping)
+            {
+                <div class="col-md-6">
+                    <div class="card mb-6 box-shadow">
+                        <div class="card-body">
+                            <h4 class="card-text">@group.GroupingName</h4>
+                            <h6 class="card-text"><b>Address Group ID: </b>@group.GroupingId</h6>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a class="btn btn-primary shadow" asp-page="./Details" asp-route-id="@group.GroupingId"
+                                       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Details</a>
+                                    <br />
+                                    <a class="btn btn-primary shadow" asp-page="./Edit" asp-route-id="@group.GroupingId"
+                                       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Edit</a>
+                                    <br />
+                                    <a class="btn btn-primary shadow" asp-page="./Delete" asp-route-id="@group.GroupingId"
+                                       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

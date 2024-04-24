@@ -12,52 +12,57 @@
 
 <h4>Edit Address</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Address.AddressId" />
-            <div class="form-group">
-                <label asp-for="Address.GroupingId" class="control-label"></label>
-                <select asp-for="Address.GroupingId" class="form-control" asp-items="ViewBag.GroupingId"></select>
-                <span asp-validation-for="Address.GroupingId" class="text-danger"></span>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Address.AddressId" />
+                    <div class="form-group">
+                        <label asp-for="Address.GroupingId" class="control-label"></label>
+                        <select asp-for="Address.GroupingId" class="form-control" asp-items="ViewBag.GroupingId"></select>
+                        <span asp-validation-for="Address.GroupingId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address.HouseName" class="control-label"></label>
+                        <input asp-for="Address.HouseName" class="form-control" />
+                        <span asp-validation-for="Address.HouseName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address.HouseNumber" class="control-label"></label>
+                        <input asp-for="Address.HouseNumber" class="form-control" />
+                        <span asp-validation-for="Address.HouseNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address.StreetName" class="control-label"></label>
+                        <input asp-for="Address.StreetName" class="form-control" />
+                        <span asp-validation-for="Address.StreetName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address.PostTown" class="control-label"></label>
+                        <input asp-for="Address.PostTown" class="form-control" />
+                        <span asp-validation-for="Address.PostTown" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address.Postcode" class="control-label"></label>
+                        <input asp-for="Address.Postcode" class="form-control" />
+                        <span asp-validation-for="Address.Postcode" class="text-danger"></span>
+                    </div>
+                    <div class="btn-group">
+                        <input type="submit" value="Save Changes" class="btn btn-primary shadow"
+                               style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px" />
+                        <br />
+                        <a class="btn btn-primary shadow" asp-page="./Index"
+                           style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Return to List</a>
+                        <br />
+                        <a class="btn btn-primary shadow" role="button" href="/Admin"
+                           style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Admin Portal</a>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Address.HouseName" class="control-label"></label>
-                <input asp-for="Address.HouseName" class="form-control" />
-                <span asp-validation-for="Address.HouseName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address.HouseNumber" class="control-label"></label>
-                <input asp-for="Address.HouseNumber" class="form-control" />
-                <span asp-validation-for="Address.HouseNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address.StreetName" class="control-label"></label>
-                <input asp-for="Address.StreetName" class="form-control" />
-                <span asp-validation-for="Address.StreetName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address.PostTown" class="control-label"></label>
-                <input asp-for="Address.PostTown" class="form-control" />
-                <span asp-validation-for="Address.PostTown" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address.Postcode" class="control-label"></label>
-                <input asp-for="Address.Postcode" class="form-control" />
-                <span asp-validation-for="Address.Postcode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save Changes" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Return to List</a>
-    <a class="btn btn-primary shadow" role="button" href="/Admin"
-       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Admin Portal</a>
 </div>
 
 @section Scripts {

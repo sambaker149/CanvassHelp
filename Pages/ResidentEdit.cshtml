@@ -1,6 +1,6 @@
 ﻿@page
 @using CanvassHelp.Models
-@model CanvassHelp.Pages.ResidentEditModel
+@model CanvassHelp.Pages.EditModel
 
 @{
     ViewData["Title"] = "Record Your Conversations";
@@ -11,76 +11,84 @@
     <h2>Record Your Conversations</h2>
 </div>
 
-<h4>Input Details Below</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Resident.ResidentId" />
-            <div class="form-group">
-                <label>First Name(s)</label>
-                <input type="readonly" asp-for="Resident.FirstNames" class="form-control" />
-                <span asp-validation-for="Resident.FirstNames" class="text-danger"></span>
+<div class="album py-5 bg-light">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h4>Input Details Below</h4>
+                <hr />
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Resident.ResidentId" />
+                    <div class="form-group">
+                        <label>First Name(s)</label>
+                        <input asp-for="Resident.FirstNames" class="form-control" readonly/>
+                        <span asp-validation-for="Resident.FirstNames" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Middle Name(s)</label>
+                        <input asp-for="Resident.MiddleNames" class="form-control" readonly/>
+                        <span asp-validation-for="Resident.MiddleNames" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name(s)</label>
+                        <input asp-for="Resident.LastNames" class="form-control" readonly/>
+                        <span asp-validation-for="Resident.LastNames" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input asp-for="Resident.Email" class="form-control" />
+                        <span asp-validation-for="Resident.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input asp-for="Resident.MobileNumber" class="form-control" />
+                        <span asp-validation-for="Resident.MobileNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Voting Intention</label>
+                        <select asp-for="Resident.VoteIntention" class="form-control"
+                                asp-items="@Html.GetEnumSelectList<VoteIntention>()"></select>
+                        <span asp-validation-for="Resident.VoteIntention" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Likelihood</label>
+                        <select asp-for="Resident.Likelihood" class="form-control"
+                                asp-items="@Html.GetEnumSelectList<Likelihood>()"></select>
+                        <span asp-validation-for="Resident.Likelihood" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Additional Information</label>
+                        <select asp-for="Resident.Information" class="form-control"
+                                asp-items="@Html.GetEnumSelectList<Information>()"></select>
+                        <span asp-validation-for="Resident.Information" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Preference</label>
+                        <select asp-for="Resident.ContactPreference" class="form-control"
+                                asp-items="@Html.GetEnumSelectList<ContactPreference>()"></select>
+                        <span asp-validation-for="Resident.ContactPreference" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Contacted</label>
+                        <input asp-for="Resident.LastContacted" class="form-control" />
+                        <span asp-validation-for="Resident.LastContacted" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <select asp-for="Resident.AddressId" class="form-control" asp-items="ViewBag.AddressId" readonly></select>
+                        <span asp-validation-for="Resident.AddressId" class="text-danger"></span>
+                    </div><br />
+                    <div class="btn-group">
+                        <input type="submit" value="Save Changes" class="btn btn-primary shadow"
+                               style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px" />
+                        <br />
+                        <a class="btn btn-primary shadow" asp-page="./ResidentInput"
+                           style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Return to List</a>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label>Middle Name(s)</label>
-                <input type="readonly" asp-for="Resident.MiddleNames" class="form-control" />
-                <span asp-validation-for="Resident.MiddleNames" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Last Name(s)</label>
-                <input type="readonly" asp-for="Resident.LastNames" class="form-control" />
-                <span asp-validation-for="Resident.LastNames" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input asp-for="Resident.Email" class="form-control" />
-                <span asp-validation-for="Resident.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Mobile Number</label>
-                <input asp-for="Resident.MobileNumber" class="form-control" />
-                <span asp-validation-for="Resident.MobileNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Voting Intention</label>
-                <select asp-for="Resident.VoteIntention" class="form-control"
-                        asp-items="@Html.GetEnumSelectList<VoteIntention>()"></select>
-                <span asp-validation-for="Resident.VoteIntention" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Likelihood</label>
-                <select asp-for="Resident.Likelihood" class="form-control"
-                        asp-items="@Html.GetEnumSelectList<Likelihood>()"></select>
-                <span asp-validation-for="Resident.Likelihood" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Additional Information</label>
-                <select asp-for="Resident.Information" class="form-control"
-                        asp-items="@Html.GetEnumSelectList<Information>()"></select>
-                <span asp-validation-for="Resident.Information" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Contact Preference</label>
-                <select asp-for="Resident.ContactPreference" class="form-control"
-                        asp-items="@Html.GetEnumSelectList<ContactPreference>()"></select>
-                <span asp-validation-for="Resident.ContactPreference" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Last Contacted</label>
-                <input asp-for="Resident.LastContacted" class="form-control" />
-                <span asp-validation-for="Resident.LastContacted" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Address</label>
-                <select type="readonly" asp-for="Resident.AddressId" class="form-control" asp-items="ViewBag.AddressId"></select>
-                <span asp-validation-for="Resident.AddressId" class="text-danger"></span>
-            </div><br />
-            <div class="form-group">
-                <input type="submit" value="Save Changes" class="btn btn-primary" /> |
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 

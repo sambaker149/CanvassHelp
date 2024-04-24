@@ -10,75 +10,88 @@
     <h2>Residents</h2>
 </div>
 
-<h3>Are you sure you want to remove this resident?</h3>
-<div>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            First Name(s):
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Resident.FirstNames)
-        </dd>
-        <dt class="col-sm-2">
-            Middle Name(s):
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Resident.MiddleNames)
-        </dd>
-        <dt class="col-sm-2">
-            Last Name(s):
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Resident.LastNames)
-        </dd>
-        <dt class="col-sm-2">
-            Voting Intention:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Resident.VoteIntention)
-        </dd>
-        <dt class="col-sm-2">
-            Likelihood:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Resident.Likelihood)
-        </dd>
-        <dt class="col-sm-2">
-            Additional Information:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Resident.Information)
-        </dd>
-        <dt class="col-sm-2">
-            Contact Preference:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Resident.ContactPreference)
-        </dd>
-        <dt class="col-sm-2">
-            Last Contacted:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Resident.LastContacted)
-        </dd>
-        <dt class="col-sm-2">
-            Address:
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Resident.Address.HouseName)
-            @Html.DisplayFor(model => model.Resident.Address.HouseNumber)
-            @Html.DisplayFor(model => model.Resident.Address.StreetName)
-            @Html.DisplayFor(model => model.Resident.Address.PostTown)
-            @Html.DisplayFor(model => model.Resident.Address.Postcode)
-        </dd>
-    </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="Resident.ResidentId" />
-        <input type="submit" value="Remove" class="btn btn-danger" /> |
-        <a class="btn btn-secondary" asp-page="./Index">Return to List</a> |
-        <a class="btn btn-primary shadow" role="button" href="/Admin"
-           style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Admin Portal</a>
-    </form>
+<div class="album py-5 bg-light">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h3>Are you sure you want to remove this resident?</h3>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        <h6><b>First Name(s):</b></h6>
+                    </dt>
+                    <dd class="col-sm-8">
+                        <h6>@Html.DisplayFor(model => model.Resident.FirstNames)</h6>
+                    </dd>
+                    <dt class="col-sm-4">
+                        <h6><b>Middle Name(s):</b></h6>
+                    </dt>
+                    <dd class="col-sm-8">
+                        <h6>@Html.DisplayFor(model => model.Resident.MiddleNames)</h6>
+                    </dd>
+                    <dt class="col-sm-4">
+                        <h6><b>Last Name(s):</b></h6>
+                    </dt>
+                    <dd class="col-sm-8">
+                        <h6>@Html.DisplayFor(model => model.Resident.LastNames)</h6>
+                    </dd>
+                    <dt class="col-sm-4">
+                        <h6><b>Voting Intention:</b></h6>
+                    </dt>
+                    <dd class="col-sm-8">
+                        <h6>@Html.DisplayFor(model => model.Resident.VoteIntention)</h6>
+                    </dd>
+                    <dt class="col-sm-4">
+                        <h6><b>Likelihood:</b></h6>
+                    </dt>
+                    <dd class="col-sm-8">
+                        <h6>@Html.DisplayFor(model => model.Resident.Likelihood)</h6>
+                    </dd>
+                    <dt class="col-sm-4">
+                        <h6><b>Additional Information:</b></h6>
+                    </dt>
+                    <dd class="col-sm-8">
+                        <h6>@Html.DisplayFor(model => model.Resident.Information)</h6>
+                    </dd>
+                    <dt class="col-sm-4">
+                        <h6><b>Contact Preference:</b></h6>
+                    </dt>
+                    <dd class="col-sm-8">
+                        <h6>@Html.DisplayFor(model => model.Resident.ContactPreference)</h6>
+                    </dd>
+                    <dt class="col-sm-4">
+                        <h6><b>Last Contacted:</b></h6>
+                    </dt>
+                    <dd class="col-sm-8">
+                        <h6>@Html.DisplayFor(model => model.Resident.LastContacted)</h6>
+                    </dd>
+                    <dt class="col-sm-4">
+                        <h6><b>Address:</b></h6>
+                    </dt>
+                    <dd class="col-sm-8">
+                        <h6>
+                            @Html.DisplayFor(model => model.Resident.Address.HouseName)
+                            @Html.DisplayFor(model => model.Resident.Address.HouseNumber)
+                            @Html.DisplayFor(model => model.Resident.Address.StreetName)
+                            @Html.DisplayFor(model => model.Resident.Address.PostTown)
+                            @Html.DisplayFor(model => model.Resident.Address.Postcode)
+                        </h6>
+                    </dd>
+                </dl>
+                <div class="btn-group">
+                    <form method="post">
+                        <input type="hidden" asp-for="Resident.ResidentId" />
+                        <input type="submit" value="Remove" class="btn btn-primary shadow"
+                               style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px" />
+                        <br />
+                    </form>
+                    <a class="btn btn-primary shadow" asp-page="./Index"
+                       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Return to List</a>
+                    <br />
+                    <a class="btn btn-primary shadow" role="button" href="/Admin"
+                       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Admin Portal</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

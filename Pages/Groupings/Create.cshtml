@@ -10,24 +10,32 @@
     <h2>Address Groups</h2>
 </div>
 
-<h4>Add New Address Group</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label>Address Group Name</label>
-                <input asp-for="Grouping.GroupingName" class="form-control" />
-                <span asp-validation-for="Grouping.GroupingName" class="text-danger"></span>
-            </div><br />
-            <div class="form-group">
-                <input type="submit" value="Add" class="btn btn-primary" /> |
-                <a class="btn btn-secondary" asp-page="./Index">Return to List</a> |
-                <a class="btn btn-primary shadow" role="button" href="/Admin"
-                   style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Admin Portal</a>
+<div class="album py-5 bg-light">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h4>Add New Address Group</h4>
+                <hr />
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label>Address Group Name</label>
+                        <input asp-for="Grouping.GroupingName" class="form-control" />
+                        <span asp-validation-for="Grouping.GroupingName" class="text-danger"></span>
+                    </div><br />
+                    <div class="btn-group">
+                        <input type="submit" value="Add" class="btn btn-primary shadow"
+                               style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px" />
+                        <br />
+                        <a class="btn btn-primary shadow" asp-page="./Index"
+                           style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Return to List</a>
+                        <br />
+                        <a class="btn btn-primary shadow" role="button" href="/Admin"
+                           style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Admin Portal</a>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 

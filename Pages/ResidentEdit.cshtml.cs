@@ -12,11 +12,11 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CanvassHelp.Pages
 {
-    public class ResidentEditModel : PageModel
+    public class EditModel : PageModel
     {
         private readonly CanvassHelp.Data.CanvassHelpContext _context;
 
-        public ResidentEditModel(CanvassHelp.Data.CanvassHelpContext context)
+        public EditModel(CanvassHelp.Data.CanvassHelpContext context)
         {
             _context = context;
         }

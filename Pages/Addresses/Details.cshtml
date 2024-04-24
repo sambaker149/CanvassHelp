@@ -10,51 +10,61 @@
     <h2>Residents</h2>
 </div>
 
-<div>
-    <h4>Address Details</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Address.HouseName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address.HouseName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Address.HouseNumber)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address.HouseNumber)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Address.StreetName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address.StreetName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Address.PostTown)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address.PostTown)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Address.Postcode)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address.Postcode)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Address.Grouping)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address.Grouping.GroupingId)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Address.AddressId">Edit Address</a> |
-    <a class="btn btn-secondary" asp-page="./Index">Return to List</a> |
-    <a class="btn btn-primary shadow" role="button" href="/Admin"
-       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Admin Portal</a>
+<div class="album py-5 bg-light">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h4>Address Details</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        <h6><b>House Name:</b></h6>
+                    </dt>
+                    <dd class="col-sm-8">
+                        <h6>@Html.DisplayFor(model => model.Address.HouseName)</h6>
+                    </dd>
+                    <dt class="col-sm-4">
+                        <h6><b>House Number:</b></h6>
+                    </dt>
+                    <dd class="col-sm-8">
+                        <h6>@Html.DisplayFor(model => model.Address.HouseNumber)</h6>
+                    </dd>
+                    <dt class="col-sm-4">
+                        <h6><b>Street Name:</b></h6>
+                    </dt>
+                    <dd class="col-sm-8">
+                        <h6>@Html.DisplayFor(model => model.Address.StreetName)</h6>
+                    </dd>
+                    <dt class="col-sm-4">
+                        <h6><b>Post Town:</b></h6>
+                    </dt>
+                    <dd class="col-sm-8">
+                        <h6>@Html.DisplayFor(model => model.Address.PostTown)</h6>
+                    </dd>
+                    <dt class="col-sm-4">
+                        <h6><b>Postcode:</b></h6>
+                    </dt>
+                    <dd class="col-sm-8">
+                        <h6>@Html.DisplayFor(model => model.Address.Postcode)</h6>
+                    </dd>
+                    <dt class="col-sm-4">
+                        <h6><b>Address Group:</b></h6>
+                    </dt>
+                    <dd class="col-sm-8">
+                        <h6>@Html.DisplayFor(model => model.Address.Grouping.GroupingId)</h6>
+                    </dd>
+                </dl>
+            </div>
+            <div class="btn-group">
+                <a class="btn btn-primary shadow" asp-page="./Edit" asp-route-id="@Model.Address.AddressId"
+                   style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Edit</a>
+                <br />
+                <a class="btn btn-primary shadow" asp-page="./Index"
+                   style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Return to List</a>
+                <br />
+                <a class="btn btn-primary shadow" role="button" href="/Admin"
+                   style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Admin Portal</a>
+            </div>
+        </div>
+    </div>
 </div>
