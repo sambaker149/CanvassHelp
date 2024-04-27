@@ -1,20 +1,19 @@
 ﻿@page
-@model CanvassHelp.Pages.InputModel
+@model CanvassHelp.Pages.NewResidentRequests.IndexModel
 
 @{
-    ViewData["Title"] = "Record Your Conversations";
+    ViewData["Title"] = "Resident Addition Requests";
 }
 
 <div class="text-center">
     <h1 class="display-4">CanvassHelp Web Application</h1>
-    <h2>Record Your Conversations</h2>
+    <h2>Residents</h2>
 </div>
 
 <p>
-    <a class="btn btn-primary shadow" asp-page="/ResidentRequest"
-       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Request Resident Addition</a>
+    <a class="btn btn-primary shadow" asp-page="Create" 
+        style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Add New Resident</a>
 </p>
-
 @*<table class="table text-center">
     <thead>
         <tr>
@@ -46,9 +45,8 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Resident)
-        {
-            <tr>
+@foreach (var item in Model.Resident) {
+        <tr>
                 <h3>@Html.DisplayFor(modelItem => item.FirstNames) @Html.DisplayFor(modelItem => item.LastNames)</h3>
                 <h6>
                     <b>Address: </b>
@@ -59,35 +57,41 @@
                 <h6><b>Last Contacted: </b>@Html.DisplayFor(modelItem => item.LastContacted)</h6>
                 <h6><b>Last Voting Intention: </b>@Html.DisplayFor(modelItem => item.VoteIntention)</h6>
                 <h6><b>Contact Preference: </b>@Html.DisplayFor(modelItem => item.ContactPreference)</h6>
-                <a class="btn btn-primary shadow" role="button" asp-page="./ResidentEdit" asp-route-id="@item.ResidentId" 
-                style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Record Conversation</a>
-            </tr>
+                
+        </tr>
             <br />
             <br />
-        }
+}
     </tbody>
 </table>*@
 <div class="album py-5 bg-light">
-    <div class="container">
-        <div class="row">
-            @foreach (var voter in Model.Resident)
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            @foreach (var request in Model.NewResidentRequests)
             {
                 <div class="col-md-6">
                     <div class="card mb-6 box-shadow">
                         <div class="card-body">
-                            <h4 class="card-text">@voter.FirstNames @voter.LastNames</h4>
-                            <h6 class="card-text"><b>Address: </b>
-                                @voter.Address.HouseNumber 
-                                @voter.Address.StreetName 
-                                @voter.Address.Postcode
+                            <h4 class="card-text">@request.FirstNames @request.LastNames</h4>
+                            <h6 class="card-text">
+                                <b>Address: </b>
+                                @request.Address.HouseNumber
+                                @request.Address.StreetName
+                                @request.Address.Postcode
                             </h6>
-                            <h6 class="card-text"><b>Last Contacted: </b>@voter.LastContacted</h6>
-                            <h6 class="card-text"><b>Last Voting Intention: </b>@voter.VoteIntention</h6>
-                            <h6 class="card-text"><b>Contact Preference: </b>@voter.ContactPreference</h6>
+                            <h6 class="card-text"><b>Last Contacted: </b>@request.LastContacted</h6>
+                            <h6 class="card-text"><b>Last Voting Intention: </b>@request.NewVoteIntention</h6>
+                            <h6 class="card-text"><b>Contact Preference: </b>@request.NewContactPreference</h6>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a class="btn btn-primary shadow" role="button" asp-page="./ResidentEdit" asp-route-id="@voter.ResidentId"
-                                       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Record Conversation</a>
+                                    <a class="btn btn-primary shadow" asp-page="./Details" asp-route-id="@request.RequestId"
+                                       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Details</a>
+                                    <br />
+                                    <a class="btn btn-primary shadow" asp-page="./Edit" asp-route-id="@request.RequestId"
+                                       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Edit</a>
+                                    <br />
+                                    <a class="btn btn-primary shadow" asp-page="./Delete" asp-route-id="@request.RequestId"
+                                       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin: 5px">Remove</a>
                                 </div>
                             </div>
                         </div>
@@ -97,4 +101,3 @@
         </div>
     </div>
 </div>
-
