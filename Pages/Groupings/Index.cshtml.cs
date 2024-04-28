@@ -14,20 +14,65 @@ namespace CanvassHelp.Pages.Groupings
     [Authorize]
     public class IndexModel : PageModel
     {
-        private readonly CanvassHelp.Data.CanvassHelpContext _context;
+        private readonly CanvassHelpContext _context;
+        private readonly IConfiguration Configuration;
 
-        public IndexModel(CanvassHelp.Data.CanvassHelpContext context)
+        public IndexModel(CanvassHelpContext context, IConfiguration configuration)
         {
             _context = context;
+            Configuration = configuration;
         }
 
-        public IList<Grouping> Grouping { get;set; } = default!;
+        public string NameSort { get; set; }
+        public string IDSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
 
-        public async Task OnGetAsync()
+        public IList<Grouping> Grouping { get; set; } = default!;
+
+        public async Task OnGetAsync(string sortOrder,
+        string currentFilter, string searchString, int? pageIndex)
         {
             if (_context.Groupings != null)
             {
                 Grouping = await _context.Groupings.ToListAsync();
+            }
+
+            CurrentSort = sortOrder;
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            IDSort = sortOrder == "ID" ? "ID_desc" : "ID";
+            if (searchString != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            CurrentFilter = searchString;
+
+            IQueryable<Grouping> groupingIQ = from s in _context.Groupings
+                                               select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                groupingIQ = groupingIQ.Where(s => s.GroupingName.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    groupingIQ = groupingIQ.OrderByDescending(s => s.GroupingName);
+                    break;
+                case "ID":
+                    groupingIQ = groupingIQ.OrderBy(s => s.GroupingId);
+                    break;
+                case "ID_desc":
+                    groupingIQ = groupingIQ.OrderByDescending(s => s.GroupingId);
+                    break;
+                default:
+                    groupingIQ = groupingIQ.OrderBy(s => s.GroupingName);
+                    break;
             }
         }
     }

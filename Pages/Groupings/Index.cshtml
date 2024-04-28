@@ -14,35 +14,30 @@
     <a class="btn btn-primary shadow" asp-page="Create"
        style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Add New Address Group</a>
 </p>
-@*<table class="table text-center">
-    <thead>
-        <tr>
-            <th>
-                <h5>Group ID</h5>
-            </th>
-            <th>
-                <h5>Group Name</h5>
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Grouping) {
-        <tr>
-                <h4>@Html.DisplayFor(modelItem => item.GroupingName)</h4>
-                <h6><b>Address Group ID: </b>@Html.DisplayFor(modelItem => item.GroupingId)</h6>
-                <a class="btn btn-info" asp-page="./Details" asp-route-id="@item.GroupingId">Address Group Details</a> |
-                <a class="btn btn-dark" asp-page="./Edit" asp-route-id="@item.GroupingId">Edit Address Group</a> |
-                <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.GroupingId">Remove Address Group</a>
-        </tr>
-            <br />
-            <br />
-}
-    </tbody>
-</table>*@
+<div class="btn-group">
+    <a class="btn btn-primary shadow" asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin:5px;">Order By Group Name</a>
+    <a class="btn btn-primary shadow" asp-page="./Index" asp-route-sortOrder="@Model.IDSort"
+       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin:5px;">Order By ID</a>
+</div>
+<br />
+<br />
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Search By Group Name:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary shadow"
+                   style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin:5px;" />
+            <a class="btn btn-primary shadow" asp-page="./ResidentInput"
+               style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin:5px;">Back to Full List</a>
+        </p>
+    </div>
+</form>
+
 <div class="album py-5 bg-light">
-    <div class="container">
-        <div class="row">
+    <div class="container text-center">
+        <div class="row justify-content-center">
             @foreach (var group in Model.Grouping)
             {
                 <div class="col-md-6">

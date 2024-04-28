@@ -7,67 +7,38 @@
 
 <div class="text-center">
     <h1 class="display-4">CanvassHelp Web Application</h1>
-    <h2>Residents</h2>
+    <h2>Resident Addition Requests</h2>
 </div>
 
 <p>
     <a class="btn btn-primary shadow" asp-page="Create" 
         style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);">Add New Resident</a>
 </p>
-@*<table class="table text-center">
-    <thead>
-        <tr>
-            <th>
-                <h5>Resident ID</h5>
-            </th>
-            <th>
-                <h5>Name</h5>
-            </th>
-            <th>
-                <h5>Email</h5>
-            </th>
-            <th>
-                <h5>Mobile</h5>
-            </th>
-            <th>
-                <h5>Last Contacted</h5>
-            </th>
-            <th>
-                <h5>Last Voting Intention</h5>
-            </th>
-            <th>
-                <h5>Contact Preference</h5>
-            </th>
-            <th>
-                <h5>Address</h5>
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Resident) {
-        <tr>
-                <h3>@Html.DisplayFor(modelItem => item.FirstNames) @Html.DisplayFor(modelItem => item.LastNames)</h3>
-                <h6>
-                    <b>Address: </b>
-                    @Html.DisplayFor(modelItem => item.Address.HouseNumber)
-                    @Html.DisplayFor(modelItem => item.Address.StreetName)
-                    @Html.DisplayFor(modelItem => item.Address.Postcode)
-                </h6>
-                <h6><b>Last Contacted: </b>@Html.DisplayFor(modelItem => item.LastContacted)</h6>
-                <h6><b>Last Voting Intention: </b>@Html.DisplayFor(modelItem => item.VoteIntention)</h6>
-                <h6><b>Contact Preference: </b>@Html.DisplayFor(modelItem => item.ContactPreference)</h6>
-                
-        </tr>
-            <br />
-            <br />
-}
-    </tbody>
-</table>*@
+<div class="btn-group">
+    <a class="btn btn-primary shadow" asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin:5px;">Order By Last Name</a>
+    <a class="btn btn-primary shadow" asp-page="./Index" asp-route-sortOrder="@Model.DateSort"
+       style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin:5px;">Order By Last Contact Date</a>
+</div>
+<br />
+<br />
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Search By Resident Name:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary shadow"
+                   style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin:5px;" />
+            <a class="btn btn-primary shadow" asp-page="./ResidentInput"
+               style="background: #567b92;border-style: none;border-color: var(--bs-navbar-hover-color);margin:5px;">Back to Full List</a>
+        </p>
+    </div>
+</form>
+
 <div class="album py-5 bg-light">
     <div class="container text-center">
         <div class="row justify-content-center">
-            @foreach (var request in Model.NewResidentRequests)
+            @foreach (var request in Model.NewResidentRequest)
             {
                 <div class="col-md-6">
                     <div class="card mb-6 box-shadow">
@@ -75,7 +46,7 @@
                             <h4 class="card-text">@request.FirstNames @request.LastNames</h4>
                             <h6 class="card-text">
                                 <b>Address: </b>
-                                @request.Address.HouseNumber
+                                request.Address.HouseNumber
                                 @request.Address.StreetName
                                 @request.Address.Postcode
                             </h6>
